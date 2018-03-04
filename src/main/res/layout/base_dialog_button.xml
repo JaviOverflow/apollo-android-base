@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+    android:id="@+id/dialogButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/positive"
+    android:text="TEST"
+    android:textSize="@dimen/mediumText"
+    android:textColor="@android:color/white"
+    tools:showIn="@layout/base_dialog" />

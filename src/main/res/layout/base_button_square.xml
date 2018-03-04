@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/element"
+    style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/positive"
+    android:text="TEST"
+    android:textColor="@android:color/white"
+    android:textSize="@dimen/mediumText" />

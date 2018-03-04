@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="positive">#4CAF50</color>
+    <color name="negative">#f44336</color>
+    <color name="configuration">#2196F3</color>
+
+    <color name="textOverDark">#FAFAFA</color>
+    <color name="textOverLight">#212121</color>
+    <color name="textOverLightSecondary">#757575</color>
+</resources>
