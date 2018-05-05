@@ -13,7 +13,9 @@
         android:textAlignment="textEnd"
         android:layout_marginEnd="20dp"
         android:textColor="@color/textOverLight"
-        android:textSize="@dimen/mediumText" />
+        android:textSize="@dimen/mediumText"
+        android:layout_marginRight="20dp"
+        android:gravity="end" />
 
     <EditText
         android:id="@+id/editText"
@@ -21,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:selectAllOnFocus="true"
+        android:inputType="numberDecimal"
+        android:digits="0123456789.,"
         android:textColor="@color/textOverLight"
         android:textSize="@dimen/mediumText" />
 

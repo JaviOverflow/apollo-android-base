@@ -45,8 +45,8 @@ fun Instant.untilNow(): Duration {
 fun Duration.toStringShorted(): String {
     var message = ""
     this.toDays().takeIf { it != 0L }.doIfNotNull { message += "${it}d " }
-    this.toHours().takeIf { it != 0L }.doIfNotNull { message += "${it}h " }
-    this.toMinutes().takeIf { it != 0L }.doIfNotNull { message += "${it}m" }
+    this.toHours().takeIf { it != 0L }.doIfNotNull { message += "${it.rem(24)}h " }
+    this.toMinutes().doIfNotNull { message += "${it.rem(60)}min" }
     return message
 }
 

@@ -127,8 +127,10 @@ class BaseDialog(val context: Context) {
 
         layout.label.text = label
         layout.editText.setText(value.toString())
-        layout.editText.inputType = InputType.TYPE_CLASS_NUMBER
-        layout.editText.keyListener = DigitsKeyListener.getInstance("0123456789.,")
+
+//        This somehow doesn't work. These values were given to the generic xml editable as default values
+//        layout.editText.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL or InputType.TYPE_NUMBER_FLAG_SIGNED
+//        layout.editText.keyListener = DigitsKeyListener.getInstance("0123456789.,")
 
         inputs.add(layout.editText)
         return this
