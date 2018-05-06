@@ -54,9 +54,6 @@ fun Duration.toStringShorted(): String {
 
 fun zonedDateTimeNow() : ZonedDateTime = ZonedDateTime.ofInstant(instantNow(), ZoneId.systemDefault())
 
-fun ZonedDateTime.toStringHourAndMinute(): String =
-        "${this.hour}:${this.minute}"
-
 fun ZonedDateTime.toStringDateAndTimeWithoutYear(): String =
         this.format(DateTimeFormatter.ofPattern("dd/MM HH:mm", Locale.getDefault()))
 
