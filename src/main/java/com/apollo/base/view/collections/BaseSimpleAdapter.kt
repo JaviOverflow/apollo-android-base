@@ -1,4 +1,4 @@
-package com.jj.pos.lib.view.collections
+package com.beepflow.pos.lib.view.collections
 
 import android.view.View
 import android.view.ViewGroup

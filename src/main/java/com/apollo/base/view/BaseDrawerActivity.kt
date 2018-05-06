@@ -82,8 +82,6 @@ abstract class BaseDrawerActivity<P> : BaseActivity<P>() where P : BasePresenter
     override fun onBackPressed() {
         if (_drawerLayout.isDrawerOpen(GravityCompat.START)) {
             _drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
     }
 }
