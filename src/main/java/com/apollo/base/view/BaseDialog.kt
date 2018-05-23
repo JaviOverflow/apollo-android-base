@@ -3,9 +3,7 @@ package com.apollo.base.view
 import android.app.AlertDialog
 import android.content.Context
 import android.support.v4.content.ContextCompat
-import android.text.Editable
 import android.text.InputType
-import android.text.method.DigitsKeyListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -16,6 +14,7 @@ import android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
 import android.widget.TextView
 import com.apollo.base.R
 import kotlinx.android.synthetic.main.base_dialog.view.*
+import kotlinx.android.synthetic.main.base_dialog_checkbox.view.*
 import kotlinx.android.synthetic.main.base_dialog_edittext.view.*
 import kotlinx.android.synthetic.main.base_dialog_edittextautocomplete.view.*
 
@@ -29,7 +28,7 @@ class BaseDialog(val context: Context) {
 
     private var contentView: View? = null
 
-    private var inputs = mutableListOf<TextView>()
+    private var inputs = mutableListOf<Any>()
 
     private var onShow: MutableList<() -> Unit> = mutableListOf()
     private var onDismiss: MutableList<() -> Unit> = mutableListOf()
@@ -73,38 +72,38 @@ class BaseDialog(val context: Context) {
         return this
     }
 
-    fun positiveButton(message: String = "OK", callback: (List<Editable>) -> Unit = {}): BaseDialog {
+    fun positiveButton(message: String = "OK", callback: (List<Any>) -> Unit = {}): BaseDialog {
         val button = LayoutInflater.from(context).inflate(R.layout.base_dialog_button, null) as Button
         val layoutParams = LayoutParams(0, WRAP_CONTENT, 1f)
         baseView.containerButtons.addView(button, 0, layoutParams)
 
         button.setBackgroundColor(ContextCompat.getColor(context, R.color.positive))
         button.text = message
-        button.setOnClickListener { callback(inputs.map(TextView::getEditableText)); dialog.dismiss() }
+        button.setOnClickListener { callback(inputs); dialog.dismiss() }
 
         return this
     }
 
-    fun configurationButton(message: String, callback: (List<Editable>) -> Unit = {}): BaseDialog {
+    fun configurationButton(message: String, callback: (List<Any>) -> Unit = {}): BaseDialog {
         val button = LayoutInflater.from(context).inflate(R.layout.base_dialog_button, null) as Button
         val layoutParams = LayoutParams(0, WRAP_CONTENT, 1f)
         baseView.containerButtons.addView(button, 0, layoutParams)
 
         button.setBackgroundColor(ContextCompat.getColor(context, R.color.configuration))
         button.text = message
-        button.setOnClickListener { callback(inputs.map(TextView::getEditableText)) }
+        button.setOnClickListener { callback(inputs) }
 
         return this
     }
 
-    fun negativeButton(message: String = "Cancelar", callback: (List<Editable>) -> Unit = {}): BaseDialog {
+    fun negativeButton(message: String = "Cancelar", callback: (List<Any>) -> Unit = {}): BaseDialog {
         val button = LayoutInflater.from(context).inflate(R.layout.base_dialog_button, null) as Button
         val layoutParams = LayoutParams(0, WRAP_CONTENT, 1f)
         baseView.containerButtons.addView(button, 0, layoutParams)
 
         button.setBackgroundColor(ContextCompat.getColor(context, R.color.negative))
         button.text = message
-        button.setOnClickListener { callback(inputs.map(TextView::getEditableText)); dialog.dismiss() }
+        button.setOnClickListener { callback(inputs); dialog.dismiss() }
 
         return this
     }
@@ -164,6 +163,21 @@ class BaseDialog(val context: Context) {
         return this
     }
 
+    fun <E> multipleChoice(label: String, choices: List<E>, defaultChoices: List<E>): BaseDialog {
+
+        val checkBoxes = choices.map {
+            val layout = LayoutInflater.from(context).inflate(R.layout.base_dialog_checkbox, null)
+            baseView.containerContent.addView(layout)
+
+            layout.checkbox.text = it.toString()
+            if (defaultChoices.contains(it)) layout.checkbox.isChecked = true
+
+            return@map layout.checkbox
+        }
+
+        inputs.add(checkBoxes)
+        return this
+    }
 
     fun show() {
         dialog.setView(baseView)
