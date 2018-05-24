@@ -163,7 +163,7 @@ class BaseDialog(val context: Context) {
         return this
     }
 
-    fun <E> multipleChoice(label: String, choices: List<E>, defaultChoices: List<E>): BaseDialog {
+    fun multipleChoice(label: String, choices: List<Any>, defaultChoices: List<Any>): BaseDialog {
 
         val checkBoxes = choices.map {
             val layout = LayoutInflater.from(context).inflate(R.layout.base_dialog_checkbox, null)
