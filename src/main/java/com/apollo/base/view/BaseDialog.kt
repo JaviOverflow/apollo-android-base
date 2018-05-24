@@ -116,7 +116,7 @@ class BaseDialog(val context: Context) {
         layout.editText.setText(value.toString())
         layout.editText.inputType = InputType.TYPE_CLASS_NUMBER
 
-        inputs.add(layout.editText)
+        inputs.add(layout.editText.text)
         return this
     }
 
@@ -131,7 +131,7 @@ class BaseDialog(val context: Context) {
 //        layout.editText.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL or InputType.TYPE_NUMBER_FLAG_SIGNED
 //        layout.editText.keyListener = DigitsKeyListener.getInstance("0123456789.,")
 
-        inputs.add(layout.editText)
+        inputs.add(layout.editText.text)
         return this
     }
 
@@ -143,7 +143,7 @@ class BaseDialog(val context: Context) {
         layout.editText.setText(value)
         layout.editText.inputType = InputType.TYPE_CLASS_TEXT
 
-        inputs.add(layout.editText)
+        inputs.add(layout.editText.text)
         return this
     }
 
@@ -159,7 +159,7 @@ class BaseDialog(val context: Context) {
         layout.autoCompleteValue.setAdapter(suggestionsAdapter)
         onDismiss.add({ layout.autoCompleteValue.setAdapter(null) })
 
-        inputs.add(layout.autoCompleteValue)
+        inputs.add(layout.autoCompleteValue.text)
         return this
     }
 
