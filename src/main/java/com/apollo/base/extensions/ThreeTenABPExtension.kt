@@ -60,6 +60,9 @@ fun ZonedDateTime.toStringDateAndTimeWithoutYear(): String =
 fun ZonedDateTime.toStringDateAndTime(): String =
         this.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", Locale.getDefault()))
 
+fun ZonedDateTime.toStringDetailed(): String =
+        this.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss.SSS Z (z)", Locale.getDefault()))
+
 fun ZonedDateTime.toStringTime(): String =
         this.format(DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault()))
 

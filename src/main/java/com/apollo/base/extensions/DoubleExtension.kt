@@ -18,5 +18,6 @@ fun Double.toStringPercentage() = (this * 100).toStringFixedDigit(2) + "%"
 
 fun Double.toStringPercentageWordy() = (this * 100).toStringFixedDigit(2) + "/100"
 
+// TODO correct name, it's not fixed digit, it's fixed decimal digits
 fun Double.toStringFixedDigit(digits: Int) = String.format("%.${digits}f", this)
 

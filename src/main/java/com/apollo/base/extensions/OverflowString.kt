@@ -6,7 +6,7 @@ import java.text.Normalizer
 
 enum class AppendToThe { Left, Center, Right }
 
-fun String.toLength(toLength: Int, fillWith: Char? = ' ', appendToThe: AppendToThe = Right): String {
+fun String.toLength(toLength: Int, fillWith: Char = ' ', appendToThe: AppendToThe = Right): String {
     val differenceAmount = toLength - this.length
 
     if (differenceAmount < 0)
