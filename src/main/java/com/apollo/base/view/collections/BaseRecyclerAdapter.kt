@@ -1,4 +1,4 @@
-package com.beepflow.pos.lib.view.collections
+package com.apollo.base.view.collections
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

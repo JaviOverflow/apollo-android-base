@@ -1,4 +1,4 @@
-package com.beepflow.pos.lib.view.collections
+package com.apollo.base.view.collections
 
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +33,6 @@ class BaseSimpleAdapter<Model, ItemView>(createNewItemView: () -> ItemView) : Ba
     override fun getCount(): Int = items.size
 
     init {
-        this.items = ArrayList()
+        this.items = listOf()
     }
 }
