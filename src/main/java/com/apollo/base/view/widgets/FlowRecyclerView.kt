@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 
 
-class BaseRecyclerView @JvmOverloads constructor(
+class FlowRecyclerView @JvmOverloads constructor(
         context: Context?,
         attributeSet: AttributeSet? = null,
         defStyle: Int = 0
